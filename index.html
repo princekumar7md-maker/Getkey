@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <script>
+        // ==========================================
+        // CONFIGURATION: EDIT YOUR LINK HERE
+        // ==========================================
+        const KEY_LINK = "https://your-key-link-here.com";
+        // ==========================================
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Panel Oficial</title>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --highlight-glow: #00f2ff;
+            --text-light: #ffffff;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 50px 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+            max-width: 360px;
+            width: 85%;
+        }
+
+        .logo {
+            width: 140px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--primary-color));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        /* HIGHLIGHTED & ANIMATED BUTTON */
+        .btn-highlight {
+            display: inline-block;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            border-radius: 50px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 1;
+            /* Pulsing Animation */
+            animation: pulse-glow 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7);
+                transform: scale(1);
+            }
+            70% {
+                box-shadow: 0 0 25px 15px rgba(0, 210, 255, 0);
+                transform: scale(1.05);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 210, 255, 0);
+                transform: scale(1);
+            }
+        }
+
+        .btn-highlight:hover {
+            transform: scale(1.1) rotate(-1deg);
+            filter: brightness(1.2);
+        }
+
+        /* Entry Overlay */
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #050505;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+        }
+        
+        .enter-btn {
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="startPage()">
+        <div class="enter-btn">ENTER</div>
+    </div>
+
+    <div class="container">
+        <img src="https://res.cloudinary.com/dilst4m2x/image/upload/v1763641561/Picsart_25-11-19_09-34-17-374_masa2y.png" alt="Logo" class="logo">
+        <h1>Prime Panel Oficial</h1>
+        
+        <button onclick="window.location.href=KEY_LINK" class="btn-highlight">
+            Click here to get key
+        </button>
+    </div>
+
+    <audio id="bg-audio">
+        <source src="https://res.cloudinary.com/dilst4m2x/video/upload/v1763321312/VID-20251015-WA0011_2_t4enz7.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function startPage() {
+            const audio = document.getElementById("bg-audio");
+            audio.loop = false; // Ensures it plays only once
+            audio.play().catch(e => console.log("Audio ready"));
+            
+            const overlay = document.getElementById("overlay");
+            overlay.style.opacity = "0";
+            setTimeout(() => overlay.style.display = "none", 800);
+        }
+    </script>
+</body>
+</html>
